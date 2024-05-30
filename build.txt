@@ -1,0 +1,3 @@
+displayName = Archinzello UI
+author = ArctanDev, Chinzilla00, and Manzello.
+version = 0.1
