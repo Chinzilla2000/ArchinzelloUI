@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JVLh4drN9XWwlYBCxnLoKEvPJY+lTQSTLNqhdtC3pRi0F1OlgBeGoadPkXOROWCux0KKbts76eisbmbGz6pRNA==",
+  "success": true,
+  "projectFilePath": "D:\\My Games\\Terraria\\tModLoader\\ModSources\\ArchinzelloUI\\ArchinzelloUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sockm\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
