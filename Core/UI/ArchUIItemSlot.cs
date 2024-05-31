@@ -13,7 +13,7 @@ namespace ArchinzelloUI.Core.UI
     internal class ArchUIItemSlot : UIElement
     {
         internal Item Item;
-        private Asset<Texture2D> _texture;
+        private readonly Asset<Texture2D> _texture;
         private readonly int _context;
         private readonly float _scale;
         internal Func<Item, bool> ValidItemFunc;
