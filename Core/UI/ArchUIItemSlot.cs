@@ -48,7 +48,7 @@ namespace ArchinzelloUI.Core.UI
             spriteBatch.Draw(_texture.Value, rectangle.TopLeft(), Color.White);
             ItemSlot.DrawItemIcon(Item, _context, spriteBatch, new Vector2(rectangle.Center().X, rectangle.Center().Y), _scale, 40f, Color.White);
             if (Item.stack > 1)
-				ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, Item.stack.ToString(), rectangle.Center.ToVector2() + new Vector2(-8f, 0f) * _scale, Color.White, 0f, Vector2.Zero, new Vector2(_scale), -1f, _scale);
+				ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, Item.stack.ToString(), rectangle.Center.ToVector2() + new Vector2(-16f, 0f) * _scale, Color.White, 0f, Vector2.Zero, new Vector2(_scale), -1f, _scale);
             Main.inventoryScale = oldScale;
         }
     }
