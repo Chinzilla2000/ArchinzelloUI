@@ -1,7 +1,9 @@
 using System;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Terraria;
 using Terraria.GameContent.UI.Elements;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI {
@@ -18,30 +20,32 @@ namespace ArchinzelloUI.Core.UI {
             float left = 0;
 
             for (int i = 0; i < tabs.Length; i++) {
+                Logging.PublicLogger.Debug("Left: " + left);
                 tabButton[i] = new ArchUITabButton(tabs[i].Item1, i);
                 tabButton[i].OnLeftClick += (s, e) => {
-                    SwitchTab(tabButton[i].thingy);
+                    Logging.PublicLogger.Debug("BOOO");
+                    SwitchTab(((ArchUITabButton)e).thingy);
                 };
                 tabButton[i].Left.Set(left, 0f);
-                left += tabButton[i].Width.Pixels;
+                left += tabs[i].Item1.Width();
                 tabButton[i].Top.Set(0, 0f);
 
                 this.tabs[i] = tabs[i].Item2;
                 this.tabs[i].Deactivate();
             }
 
-            SwitchTab(currentThingy);
-
             for (int i = 0; i < tabButton.Length; i++) {
                 Append(tabButton[i]);
                 Append(this.tabs[i]);
             }
+
+            SwitchTab(currentThingy);
         }
 
         public void SwitchTab(int newTab) {
-            tabs[currentThingy].Deactivate();
+            RemoveChild(tabs[currentThingy]);
             currentThingy = newTab;
-            tabs[currentThingy].Activate();
+            Append(tabs[currentThingy]);
         }
     }
 

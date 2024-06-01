@@ -8,7 +8,7 @@ namespace ArchinzelloUI.Core.UI {
         public int current = 0;
         public string[] options = [""];
         private UIButton<string>[] optionButtons = [];
-        private readonly UIScrollbar scrollbar = new();
+        private readonly UIScrollbar scrollbar;
         private readonly UIPanel panel = new();
 
         public ArchUIDropdown(Rectangle positions) {
@@ -23,10 +23,12 @@ namespace ArchinzelloUI.Core.UI {
             panel.Width.Set(positions.Width - 20, 0f);
             panel.OverflowHidden = true;
 
+            scrollbar = new UIScrollbar();
             scrollbar.Top.Set(0, 0f);
             scrollbar.Left.Set(positions.Width - 20, 0f);
             scrollbar.Height.Set(positions.Height, 0f);
             scrollbar.Width.Set(20, 0f);
+            scrollbar.SetView(10, 200);
 
             Append(panel);
             Append(scrollbar);
