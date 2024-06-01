@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -10,14 +12,21 @@ namespace ArchinzelloUI.Core.UI
 		private Vector2 offset;
 		private bool dragging;
 
+		public ArchUIPanelDraggable() : base() {
+		}
+
+		public ArchUIPanelDraggable(Asset<Texture2D> customBackground, Asset<Texture2D> customBorder, int customCornerSize = 12, int customBarSize = 4) : base(customBackground, customBorder, customCornerSize, customBarSize) {
+
+		}
+
 		public override void LeftMouseDown(UIMouseEvent evt) {
 			base.LeftMouseDown(evt);
-			DragStart(evt);
+			if (evt.MousePosition.Y <= Top.Pixels + 20) DragStart(evt);
 		}
 
 		public override void LeftMouseUp(UIMouseEvent evt) {
 			base.LeftMouseUp(evt);
-			DragEnd(evt);
+			if (dragging) DragEnd(evt);
 		}
 
 		public void DragStart(UIMouseEvent evt) {

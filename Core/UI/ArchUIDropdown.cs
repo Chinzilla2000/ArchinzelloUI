@@ -21,6 +21,7 @@ namespace ArchinzelloUI.Core.UI {
             panel.Left.Set(0, 0f);
             panel.Height.Set(positions.Height, 0f);
             panel.Width.Set(positions.Width - 20, 0f);
+            panel.OverflowHidden = true;
 
             scrollbar.Top.Set(0, 0f);
             scrollbar.Left.Set(positions.Width - 20, 0f);
@@ -38,7 +39,7 @@ namespace ArchinzelloUI.Core.UI {
                 optionButtons[i].Left.Set(0, 0f);
                 optionButtons[i].Width.Set(positions.Width - 20, 0f);
                 optionButtons[i].Height.Set(36, 0f);
-                Append(optionButtons[i]);
+                panel.Append(optionButtons[i]);
             }
         }
 
@@ -49,12 +50,12 @@ namespace ArchinzelloUI.Core.UI {
             optionButtons[^1].Left.Set(0, 0f);
             optionButtons[^1].Width.Set(Width.Pixels - 20, 0f);
             optionButtons[^1].Height.Set(36, 0f);
-            Append(optionButtons[^1]);
+            panel.Append(optionButtons[^1]);
         }
 
         public void Reset(string[] newOptions) {
             for (int i = 0; i < optionButtons.Length; i++) {
-                RemoveChild(optionButtons[i]);
+                panel.RemoveChild(optionButtons[i]);
             }
             options = newOptions;
             optionButtons = new UIButton<string>[options.Length];
@@ -64,14 +65,14 @@ namespace ArchinzelloUI.Core.UI {
                 optionButtons[i].Left.Set(0, 0f);
                 optionButtons[i].Width.Set(Width.Pixels - 20, 0f);
                 optionButtons[i].Height.Set(36, 0f);
-                Append(optionButtons[i]);
+                panel.Append(optionButtons[i]);
             }
         }
 
         public override void Update(GameTime gameTime)
         {
             for (int i = 0; i < options.Length; i++) {
-                optionButtons[i].Top.Set(4 + (56 * i) - (scrollbar.ViewPosition * 16), 0f);
+                optionButtons[i].Top.Set(4 + (36 * i) - (scrollbar.ViewPosition * 16), 0f);
             }
         }
     }
