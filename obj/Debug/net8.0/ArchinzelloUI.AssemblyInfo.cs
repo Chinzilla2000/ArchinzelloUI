@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchinzelloUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ccf1372f5b45d2ca4033948fec53f72b694864e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78885c47aa7b71c072f176a048c22ffc3a37d2c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchinzelloUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchinzelloUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

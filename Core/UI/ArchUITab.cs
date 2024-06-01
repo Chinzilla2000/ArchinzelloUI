@@ -31,6 +31,11 @@ namespace ArchinzelloUI.Core.UI {
             }
 
             SwitchTab(currentThingy);
+
+            for (int i = 0; i < tabButton.Length; i++) {
+                Append(tabButton[i]);
+                Append(this.tabs[i]);
+            }
         }
 
         public void SwitchTab(int newTab) {
