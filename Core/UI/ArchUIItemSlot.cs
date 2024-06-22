@@ -10,7 +10,7 @@ using Terraria.UI.Chat;
 
 namespace ArchinzelloUI.Core.UI
 {
-    internal class ArchUIItemSlot : UIElement
+    public class ArchUIItemSlot : UIElement
     {
         internal Item Item;
         private readonly Asset<Texture2D> _texture;
