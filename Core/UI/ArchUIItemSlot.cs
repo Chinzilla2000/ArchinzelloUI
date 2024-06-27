@@ -12,7 +12,7 @@ namespace ArchinzelloUI.Core.UI
 {
     public class ArchUIItemSlot : UIElement
     {
-        internal Item Item;
+        public Item Item;
         private readonly Asset<Texture2D> _texture;
         private readonly int _context;
         private readonly float _scale;
@@ -22,6 +22,9 @@ namespace ArchinzelloUI.Core.UI
         {
             _texture = texture ?? TextureAssets.InventoryBack9;
             _context = context;
+
+            //scale = Math.Min(_texture.Width(), _texture.Height()) / TextureAssets.InventoryBack9.Width();
+
             _scale = scale;
             Item = new Item();
             Item.SetDefaults(0);

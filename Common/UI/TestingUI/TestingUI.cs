@@ -38,7 +38,7 @@ namespace ArchinzelloUI.Common.UI.TestingUI
             dropdown.AddOption("Text");
             dropdown.AddOption("Tent");
 
-            itemSlot = new ArchUIItemSlot();
+            itemSlot = new ArchUIItemSlot(ModContent.Request<Texture2D>("ArchinzelloUI/Assets/Circle"));
             itemSlot.Left.Set(200, 0f);
             itemSlot.Top.Set(40, 0f);
 
