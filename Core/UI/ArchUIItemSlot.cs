@@ -10,13 +10,13 @@ using Terraria.UI.Chat;
 
 namespace ArchinzelloUI.Core.UI
 {
-    public class ArchUIItemSlot : UIElement
+    public class ArchUIItemSlot : ArchUIElement
     {
         public Item Item;
         private readonly Asset<Texture2D> _texture;
         private readonly int _context;
         private readonly float _scale;
-        internal Func<Item, bool> ValidItemFunc;
+        public Func<Item, bool> ValidItemFunc;
 
         public ArchUIItemSlot(Asset<Texture2D> texture = null, int context = ItemSlot.Context.BankItem, float scale = 1f)
         {
@@ -33,7 +33,7 @@ namespace ArchinzelloUI.Core.UI
             Height.Set(_texture.Height(), 0f);
         }
 
-        protected override void DrawSelf(SpriteBatch spriteBatch)
+        protected override void ArchDrawSelf(SpriteBatch spriteBatch)
         {
             float oldScale = Main.inventoryScale;
             Main.inventoryScale = _scale;

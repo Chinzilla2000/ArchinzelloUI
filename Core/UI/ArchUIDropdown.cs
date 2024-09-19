@@ -4,7 +4,7 @@ using Terraria.ModLoader.UI;
 using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI {
-    public class ArchUIDropdown : UIElement {
+    public class ArchUIDropdown : ArchUIElement {
         public int current = 0;
         public string[] options = [""];
         private UIButton<string>[] optionButtons = [];
@@ -71,7 +71,7 @@ namespace ArchinzelloUI.Core.UI {
             }
         }
 
-        public override void Update(GameTime gameTime)
+        public override void ArchUpdate(GameTime gameTime)
         {
             for (int i = 0; i < options.Length; i++) {
                 optionButtons[i].Top.Set(4 + (36 * i) - (scrollbar.ViewPosition * 16), 0f);

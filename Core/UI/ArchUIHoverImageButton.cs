@@ -1,20 +1,15 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
-using Terraria.GameContent.UI.Elements;
 
 namespace ArchinzelloUI.Core.UI
 {
-	internal class ArchUIHoverImageButton : UIImageButton
+	public class ArchUIHoverImageButton(Asset<Texture2D> texture, string hoverText) : ArchUIImageButton(texture)
 	{
-		internal string hoverText;
+		public string hoverText = hoverText;
 
-		public ArchUIHoverImageButton(Asset<Texture2D> texture, string hoverText) : base(texture) {
-			this.hoverText = hoverText;
-		}
-
-		protected override void DrawSelf(SpriteBatch spriteBatch) {
-			base.DrawSelf(spriteBatch);
+        protected override void ArchDrawSelf(SpriteBatch spriteBatch) {
+			DrawSelf(spriteBatch);
 
 			if (IsMouseHovering)
 				Main.hoverItemName = hoverText;

@@ -2,12 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
-using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI
 {
-	public class ArchUIPanelDraggable : UIPanel, IArchUIDraggable
+	public class ArchUIPanelDraggable : ArchUIPanel, IArchUIDraggable
 	{
 		private Vector2 offset;
 		private bool dragging;
@@ -19,13 +18,13 @@ namespace ArchinzelloUI.Core.UI
 
 		}
 
-		public override void LeftMouseDown(UIMouseEvent evt) {
-			base.LeftMouseDown(evt);
-			if (evt.MousePosition.Y <= Top.Pixels + 20) DragStart(evt);
+		public override void ArchLeftMouseDown(UIMouseEvent evt) {
+			LeftMouseDown(evt);
+			DragStart(evt);
 		}
 
-		public override void LeftMouseUp(UIMouseEvent evt) {
-			base.LeftMouseUp(evt);
+		public override void ArchLeftMouseUp(UIMouseEvent evt) {
+			LeftMouseUp(evt);
 			if (dragging) DragEnd(evt);
 		}
 
@@ -44,8 +43,8 @@ namespace ArchinzelloUI.Core.UI
 			Recalculate();
 		}
 
-		public override void Update(GameTime gameTime) {
-			base.Update(gameTime);
+		public override void ArchUpdate(GameTime gameTime) {
+			Update(gameTime);
 
 			if (ContainsPoint(Main.MouseScreen)) {
 				Main.LocalPlayer.mouseInterface = true;

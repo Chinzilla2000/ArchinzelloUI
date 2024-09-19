@@ -3,19 +3,14 @@ using Microsoft.Xna.Framework;
 using ReLogic.Content;
 using ReLogic.Graphics;
 using Terraria.GameContent;
-using Terraria.GameContent.UI.Elements;
 
 namespace ArchinzelloUI.Core.UI {
-    public class ArchUIImageStringButton : UIImageButton {
-        public string text;
+    public class ArchUIImageStringButton(Asset<Texture2D> texture, string content) : ArchUIImageButton(texture) {
+        public string text = content;
 
-        public ArchUIImageStringButton(Asset<Texture2D> texture, string content) : base(texture) {
-            text = content;
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void ArchDraw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
+            Draw(spriteBatch);
             spriteBatch.DrawString(FontAssets.MouseText.Value, text, GetDimensions().Position(), Color.LightGreen);
         }
     }

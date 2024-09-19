@@ -7,7 +7,7 @@ using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI
 {
-    public class ArchUIProgressBar : UIElement {
+    public class ArchUIProgressBar : ArchUIElement {
         public float progress = 0;
         public Color color = Color.White;
         public Asset<Texture2D> marker;
@@ -20,7 +20,7 @@ namespace ArchinzelloUI.Core.UI
             this.marker = marker;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void ArchDraw(SpriteBatch spriteBatch)
         {
             Filler = new((int)PositionTopLeft.X, (int)(PositionTopLeft.Y + (GetDimensions().Height - Sizing.Y)), (int)Sizing.X, (int)Sizing.Y);
             spriteBatch.Draw(TextureAssets.MagicPixel.Value, Filler, color);

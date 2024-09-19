@@ -4,43 +4,38 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.UI;
 
-namespace ArchinzelloUI.Core.UI {
-    public class ArchUICheckbox : UIElement {
-        private Asset<Texture2D> _texture;
-        private Asset<Texture2D> _checkedTexture;
-        public bool check = false;
+namespace ArchinzelloUI.Core.UI;
 
-        public ArchUICheckbox(Asset<Texture2D> texture, Asset<Texture2D> checkedTexture, bool defaultCheckboxBehavior = true)
-        {
-            _texture = texture;
-            _checkedTexture = checkedTexture;
-            Width.Set(_texture.Width(), 0f);
-            Height.Set(_texture.Height(), 0f);
+public class ArchUICheckbox : ArchUIElement {
+    private Asset<Texture2D> _texture;
+    private Asset<Texture2D> _checkedTexture;
+    public bool check = false;
 
-            if (defaultCheckboxBehavior) OnLeftClick += (e, evt) => { check = !check; };
-        }
+    public ArchUICheckbox(Asset<Texture2D> texture, Asset<Texture2D> checkedTexture, bool defaultCheckboxBehavior = true)
+    {
+        _texture = texture;
+        _checkedTexture = checkedTexture;
+        Width.Set(_texture.Width(), 0f);
+        Height.Set(_texture.Height(), 0f);
 
-        public void SetCheckedImage(Asset<Texture2D> texture)
-        {
-            _checkedTexture = texture;
-        }
+        if (defaultCheckboxBehavior) OnLeftClick += (e, evt) => { check = !check; };
+    }
 
-        public void SetImage(Asset<Texture2D> texture)
-        {
-            _texture = texture;
-            Width.Set(_texture.Width(), 0f);
-            Height.Set(_texture.Height(), 0f);
-        }
+    public void SetCheckedImage(Asset<Texture2D> texture)
+    {
+        _checkedTexture = texture;
+    }
 
-        protected override void DrawSelf(SpriteBatch spriteBatch)
-        {
-            CalculatedStyle dimensions = GetDimensions();
-            spriteBatch.Draw((check ? _checkedTexture : _texture).Value, dimensions.Position(), Color.White);
-        }
+    public void SetImage(Asset<Texture2D> texture)
+    {
+        _texture = texture;
+        Width.Set(_texture.Width(), 0f);
+        Height.Set(_texture.Height(), 0f);
+    }
 
-        public override void LeftClick(UIMouseEvent evt)
-        {
-            base.LeftClick(evt);
-        }
+    protected override void ArchDrawSelf(SpriteBatch spriteBatch)
+    {
+        CalculatedStyle dimensions = GetDimensions();
+        spriteBatch.Draw((check ? _checkedTexture : _texture).Value, dimensions.Position(), Color.White);
     }
 }

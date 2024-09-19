@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI {
-    public class ArchUITab : UIElement {
+    public class ArchUITab : ArchUIElement {
         public ArchUITabButton[] tabButton;
         public UIElement[] tabs;
 

@@ -5,10 +5,9 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
-using Terraria.UI;
 
 namespace ArchinzelloUI.Core.UI {
-    public class ArchUINumberInput : UIElement {
+    public class ArchUINumberInput : ArchUIElement {
         private Asset<Texture2D> _texture;
         private readonly int digits = 1;
         public int number;
@@ -59,7 +58,7 @@ namespace ArchinzelloUI.Core.UI {
             Append(down);
         }
 
-        public override void Draw(SpriteBatch spriteBatch) {
+        public override void ArchDraw(SpriteBatch spriteBatch) {
             spriteBatch.Draw(_texture.Value, GetDimensions().ToRectangle().TopLeft(), new Rectangle(0, 0, 14, 14), Color.White);
             spriteBatch.Draw(_texture.Value, GetDimensions().ToRectangle().TopLeft() + new Vector2(0, 16), new Rectangle(24, 0, 14, 14), Color.White);
             spriteBatch.Draw(_texture.Value, GetDimensions().ToRectangle().TopLeft() + new Vector2(12, 0), new Rectangle(0, 0, 2, 30), Color.White);
